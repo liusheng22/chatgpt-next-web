@@ -44,6 +44,7 @@ export class ChatGPTApi implements LLMApi {
       temperature: modelConfig.temperature,
       presence_penalty: modelConfig.presence_penalty,
     };
+    console.info('requestPayload.messages =>', requestPayload.messages)
 
     console.log("[Request] openai payload: ", requestPayload);
 
@@ -70,6 +71,7 @@ export class ChatGPTApi implements LLMApi {
         let responseText = "";
 
         const finish = () => {
+          console.log('responseText =>', responseText)
           options.onFinish(responseText);
         };
 
